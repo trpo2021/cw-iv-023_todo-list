@@ -5,11 +5,6 @@ void SetTaskInFile(vector<Node>& node_vector, string date, int priority, string 
 {
     fstream Task;
     Task.open("task.txt", ios::app);
-    
-        if (!Task.is_open()) {
-        cout << "Файл не был найден!\n";
-        return;
-  }  
 
     Task << date << " " << priority << " " << text << endl;
     SetTaskForDate(node_vector, date, priority, text);
@@ -30,15 +25,6 @@ void ChangeStringInFile(vector<Node>& node_vector, string date_p, int priority_p
 
     Task.open("task.txt", ios::in);
     Cache.open("cache.txt", ios::out);
-
-    if (!Task.is_open()) {
-        cout << "Файл не был найден!\n";
-        return;
-    }
-    if (!Cache.is_open()) {
-        cout << "Файл не был найден!\n";
-        return;
-    }
 
     while ((readchar = Task.get()) != EOF) {
         if (char(readchar) != '\n') {
@@ -81,7 +67,6 @@ void ChangeStringInFile(vector<Node>& node_vector, string date_p, int priority_p
                     SetTaskForDate(node_vector, date, priority, text);
                 }
             }
-
             charcount = 0;
             date.clear();
             prior.clear();
