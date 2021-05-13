@@ -5,15 +5,15 @@
 
 using namespace std;
 
-class Node {
+class Task {
 private:
     string date;
     string text;
     int priority; //Приоритет задачи от 1 до 5
 public:
     // Конструктор:
-    Node(string date, string text, int priority);
-    Node();
+    Task(string date, string text, int priority);
+    Task();
     // Установить дату:
     void SetDate(string newDate);
     // Установить текст:
@@ -30,14 +30,14 @@ public:
     bool operator!=(const Node& b);
 };
 
-void DeleteTask(vector<Node>& vector, string date, int priority, string text);
+void DeleteTask(vector<Task>& vector, string date, int priority, string text);
 // добавление заметки:
-void SetTaskForDate(vector<Node>& nodeVector, string newDate, int newPriority, string newText);
+void SetTaskForDate(vector<Task>& taskVector, string newDate, int newPriority, string newText);
 // вывод заметок на данную дату в консоль(временно):
-void GetTaskForDate(vector<Node> nodeVector, string date);
+void GetTaskForDate(vector<Task> taskVector, string date);
 // изменение даты:
-void ChangeTaskDate(vector<Node>& nodeVector, string date, int priority, string text, string newDate);
+void ChangeTaskDate(vector<Task>& taskVector, string date, int priority, string text, string newDate);
 // изменение текста заметки:
-void ChangeTaskText(vector<Node>& nodeVector, string date, int priority, string text, string newText);
+void ChangeTaskText(vector<Task>& taskVector, string date, int priority, string text, string newText);
 // изменение приоритета заметки:
-void ChangeTaskPriority(vector<Node>& nodeVector, string date, int priority, string text, int newPriority);
+void ChangeTaskPriority(vector<Task>& taskVector, string date, int priority, string text, int newPriority);
