@@ -1,0 +1,25 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+      
+      - name: Cmake
+        run: cmake -S . -B makefiles
+        
+      - name: Build tests and application
+        run: cmake --build makefiles
+        
+      - name: Run tests
+        run: bin/tests
+      
+      - name: Check codestyle
+        run: git ls-files src/*.{c,h} | xargs clang-format -i && git diff --exit-code

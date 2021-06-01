@@ -1,0 +1,7 @@
+*.o
+*.swp
+*.save
+*.a
+*.d
+*.exe
+*.user
